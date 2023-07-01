@@ -12,7 +12,7 @@
   <style lang="scss">
   .v-checkbox[type=checkbox] {
     position: relative;
-    border: 1px solid #D7D7D7;
+    border: 1px solid var(--grey);
     border-radius: 4px;
     background-color: white;
     cursor: pointer;

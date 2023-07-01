@@ -23,7 +23,7 @@
           class="v-select_chosen"
           :class="{'__highlight': !isToChoose && props.mode === 'multi',
                    '__no-highlight': props.mode !== 'multi',
-                   '__translucentText': props.mode === 'single' && !isToChoose
+                   '__translucentText': props.mode !== 'multi' && !isToChoose
           }"
         >
           {{ stylizedSelected }}
@@ -72,7 +72,7 @@
 
 <script setup>
 import { ref, defineProps, computed, getCurrentInstance, watchEffect, watch } from 'vue';
-import vCheckbox from './v-checkbox.vue';
+import vCheckbox from './components/v-checkbox.vue';
 
 const props = defineProps({
   title: String,
@@ -273,7 +273,7 @@ watchEffect(() => {
 
   &_title {
     font-weight: 400;
-    color: black;
+    color: var(--black);
   }
 
   &_field {
@@ -289,26 +289,26 @@ watchEffect(() => {
   }
 
   &_input {
-    border: 1px solid #66687A;
+    border: 1px solid var(--grey);
     border-radius: 6px;
     font-weight: 400;
-    color: black;
+    color: var(--black);
     padding: 6px 12px 6px 8px;
     width: 280px;
 
     &:focus-visible {
       outline: none;
-      border: 1px solid #3686BB;
+      border: 1px solid var(--blue);
     }
     &.__active {
-      border: 1px solid #3AA981;
+      border: 1px solid var(--green);
     }
   }
 
   &_chosen {
     pointer-events: none;
     position: absolute;
-    color: #66687A;
+    color: var(--grey);
     /* Паддинг в инпуте */
     left: 12px;
     top: 50%;
@@ -318,8 +318,8 @@ watchEffect(() => {
       display: flex;
       align-items: center;
       border-radius: 8px;
-      background-color: #DBE8F1;
-      color: #1B1F3B;
+      background-color: var(--blue-light);
+      color: var(--black);
       padding-left: 5px;
     }
 
@@ -330,7 +330,7 @@ watchEffect(() => {
     }
 
     &.__translucentText {
-      color: #1B1F3B;
+      color: var(--black);
     }
   }
   &_remove {
@@ -365,7 +365,7 @@ watchEffect(() => {
     z-index: 999;
     margin-top: 6px;
     padding: 6px 0 6px 0;
-    background: #fff;
+    background: var(--white);
     border-radius: 4px;
   }
 
@@ -375,12 +375,12 @@ watchEffect(() => {
 
   &_option {
     color: black;
-    background-color: white;
+    background-color: var(--white);
     padding: 6px 12px;
     cursor: pointer;
 
     &:not([disabled="true"]):hover {
-      background-color: #EEF5FB;
+      background-color: var(--blue-light);
     }
     & span, & input {
       pointer-events: none;

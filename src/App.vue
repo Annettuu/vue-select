@@ -83,46 +83,8 @@ const selects = ref([
     gap: 12px 40px;
     padding: 24px 16px;
     padding-bottom: 24px;
-    background-color: #F7F7F7;
-  }
-
-  &_buttons {
-    display: flex;
-    gap: 8px;
-  }
-
-  &_tags {
-    margin: 0 64px 0 8px;
-  }
-
-  &_apply {
-    width: 91px;
-    height: 32px;
-    background-color: #44B48B;;
-    color: var(--white);
-    font-weight: 600;
-    &:hover {
-      background: #28A37A;
-      color: #FFFFFF;
-    }
-  }
-
-  &_reset {
-    width: 91px;
-    height: 32px;
-    background-color: #EBEDF0;;
-    color: #5D5E61;
-    font-weight: 600;
-    &:hover {
-      background: #E2E2E5;
-    }
-  }
-  &_list-tags {
-    display: flex;
-    gap: 8px;
+    background-color: var(--grey-light);
   }
 }
-.__highlighted {
-  background-color: #C7DFEF;
-}
+
 </style>
