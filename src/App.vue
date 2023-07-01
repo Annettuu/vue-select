@@ -1,30 +1,128 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div
+    class="v-filter"
+  >
+    <div class="v-filter_list-select">
+      <v-select
+        v-for="select in selects"
+        :key="select.id"
+        :options="select.options"
+        :title="select.title"
+        :mode="select.mode"
+      />
+    </div>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<script setup>
+import { ref } from 'vue';
+import VSelect from './components/v-select/v-select.vue';
+
+const selects = ref([
+  { 
+    id: 1, 
+    title: 'Search select', 
+    mode: 'search',
+    options: [
+      {id: 1, content: 'option 1'},
+      {id: 2, content: 'option 2'},
+      {id: 3, content: 'option 3'},
+      {id: 4, content: 'option 4'},
+      {id: 5, content: 'option 5'},
+      {id: 6, content: 'option 6'},
+      {id: 7, content: 'option 7'},
+      {id: 8, content: 'option 8'},
+      {id: 9, content: 'option 9'}
+    ]
+  },
+  { 
+    id: 2, 
+    title: 'Single select', 
+    mode: 'single',
+    options: [
+      {id: 1, content: 'option 1'},
+      {id: 2, content: 'option 2'},
+      {id: 3, content: 'option 3'},
+      {id: 4, content: 'option 4'},
+      {id: 5, content: 'option 5'},
+      {id: 6, content: 'option 6'},
+      {id: 7, content: 'option 7'},
+      {id: 8, content: 'option 8'},
+      {id: 9, content: 'option 9'}
+    ]
+  },
+  { 
+    id: 3, 
+    title: 'Multi select', 
+    mode: 'multi',
+    options: [
+      {id: 1, content: 'option 1'},
+      {id: 2, content: 'option 2'},
+      {id: 3, content: 'option 3'},
+      {id: 4, content: 'option 4'},
+      {id: 5, content: 'option 5'},
+      {id: 6, content: 'option 6'},
+      {id: 7, content: 'option 7'},
+      {id: 8, content: 'option 8'},
+      {id: 9, content: 'option 9'}
+    ]
+  }
+]);
+
+</script>
+
+<style lang="scss">
+.v-filter {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &_list-select {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 40px;
+    padding: 24px 16px;
+    padding-bottom: 24px;
+    background-color: #F7F7F7;
+  }
+
+  &_buttons {
+    display: flex;
+    gap: 8px;
+  }
+
+  &_tags {
+    margin: 0 64px 0 8px;
+  }
+
+  &_apply {
+    width: 91px;
+    height: 32px;
+    background-color: #44B48B;;
+    color: var(--white);
+    font-weight: 600;
+    &:hover {
+      background: #28A37A;
+      color: #FFFFFF;
+    }
+  }
+
+  &_reset {
+    width: 91px;
+    height: 32px;
+    background-color: #EBEDF0;;
+    color: #5D5E61;
+    font-weight: 600;
+    &:hover {
+      background: #E2E2E5;
+    }
+  }
+  &_list-tags {
+    display: flex;
+    gap: 8px;
+  }
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+.__highlighted {
+  background-color: #C7DFEF;
 }
 </style>
